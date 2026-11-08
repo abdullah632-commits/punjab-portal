@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Portal Prototype</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        .step-transition { transition: all 0.3s ease-in-out; }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4 font-sans">
+
+    <div class="max-w-md w-full bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
+        
+        <!-- Header -->
+        <div class="bg-emerald-700 text-white p-5 text-center">
+            <h1 class="text-xl font-bold">Punjab Citizen Welfare Portal</h1>
+            <p class="text-xs text-emerald-100 mt-1">Imdad Scheme Registration Interface</p>
+        </div>
+
+        <div class="p-6">
+            
+            <!-- STEP 1 -->
+            <div id="step-1" class="space-y-4">
+                <div>
+                    <label class="block text-gray-700 text-sm font-semibold mb-1">Apna Full Name likhein</label>
+                    <input type="text" id="name" placeholder="Ali Ahmed" class="w-full p-3 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 outline-none">
+                </div>
+                <div>
+                    <label class="block text-gray-700 text-sm font-semibold mb-1">Apna Mobile Number likhein</label>
+                    <input type="tel" id="phone" placeholder="03XXXXXXXXX" class="w-full p-3 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 outline-none">
+                </div>
+                <div>
+                    <label class="block text-gray-700 text-sm font-semibold mb-1">Apna Shanakti Card Number likhein</label>
+                    <input type="text" id="cnic" placeholder="33102-XXXXXXX-X" class="w-full p-3 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 outline-none">
+                </div>
+                <button onclick="nextStep(2)" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-lg shadow">
+                    Submit Karein
+                </button>
+            </div>
+
+            <!-- STEP 2 -->
+            <div id="step-2" class="hidden space-y-4 text-center">
+                <h2 class="text-lg font-bold text-gray-800">Is sahulat ko 5 doston tak share karein</h2>
+                <div class="bg-emerald-50 p-4 rounded-lg">
+                    <span class="text-sm font-semibold text-emerald-800">Progress: </span>
+                    <span id="count" class="font-bold text-emerald-600">0 / 5</span>
+                </div>
+                <button onclick="addShare()" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-lg shadow">
+                    Paanch bandon ko ye share karein
+                </button>
+            </div>
+
+            <!-- STEP 3 -->
+            <div id="step-3" class="hidden space-y-4">
+                <div>
+                    <label class="block text-gray-700 text-sm font-semibold mb-1">Bank ya Mobile Wallet Account Number</label>
+                    <input type="text" id="account" placeholder="Account Number" class="w-full p-3 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 outline-none">
+                </div>
+                <div>
+                    <label class="block text-gray-700 text-sm font-semibold mb-1">Bank / Wallet Ka Naam</label>
+                    <input type="text" id="bank" placeholder="EasyPaisa / JazzCash / Bank" class="w-full p-3 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 outline-none">
+                </div>
+                <button onclick="nextStep(4)" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-lg shadow">
+                    Confirm Bank Details
+                </button>
+            </div>
+
+            <!-- STEP 4 -->
+            <div id="step-4" class="hidden text-center space-y-3 py-4">
+                <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-2xl font-bold">✓</div>
+                <h3 class="text-lg font-bold text-gray-800">Aapki darkhwast jama ho chuki hai!</h3>
+                <p class="text-sm text-gray-600">Aapko jald 1 se 2 din ke andar paise muntaqil kar diye jayenge.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        let shares = 0;
+
+        function nextStep(step) {
+            document.querySelectorAll('[id^="step-"]').forEach(el => el.classList.add('hidden'));
+            document.getElementById(`step-${step}`).classList.remove('hidden');
+        }
+
+        function addShare() {
+            if (shares < 5) {
+                shares++;
+                document.getElementById('count').innerText = `${shares} / 5`;
+                if (shares === 5) {
+                    setTimeout(() => nextStep(3), 500);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
